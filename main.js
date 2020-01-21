@@ -10,16 +10,28 @@ const factorial = x => {
 
 
 /* 2. Write a JavaScript program to find the greatest common divisor (gcd) of two positive numbers. */
-// for loop version
-// https://www.google.com/search?q=find+the+greatest+common+divisor&rlz=1C1SQJL_enUS806US806&oq=find+the+greatest+common+divi&aqs=chrome.0.0j69i57j0l6.18680j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_M1gbXu39BOap5wK-p4vYCg28
+// https://www.gcflcm.com/gcf-of-8-and-12
 // x = smaller number
+// loop version
+/* const gcd = (x, y) => {
+  let n = 1, arr = [];
+  while (n < x) {
+    if (x % n === 0 && y % n === 0) {
+      arr.push(n)
+    }
+    n++
+  }
+  return arr.pop()
+}*/
 const gcd = (x, y) => {
+  let arr = [];
   if (y % x === 0) {
     return x;
+  } else {
+    return gcd(x - 1, y - 1)
   }
-  return
 }
-console.log(`2)`, gcd(8, 8));
+// console.log(`2)`, gcd(8, 12));
 
 /* 3. Write a JavaScript program to get the integers in range (x, y).
 Example : range(2, 9)
@@ -36,7 +48,8 @@ const range = (x, y) => {
 /* 4. Write a JavaScript program to compute the sum of an array of integers.
 Example : var array = [1, 2, 3, 4, 5, 6]
 Expected Output : 21  */
-// for loop
+// https://javascript.info/recursion
+// loop version
 /* const sumOfArr = arr => {
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -45,18 +58,36 @@ Expected Output : 21  */
   }
   return total;
 } */
-
 const sumOfArr = arr => {
   if (arr.length <= 1) {
-    return arr[0];
+    return arr[0]; //if there is only one element, return that element
+  } else {  //if there are more elements
+    let sum = 0;
+    for (let num in arr) {
+      // sum += arr[num]; //this works sum = 21
+      /* sum += sumOfArr(num); // returns 0012345 */
+      sum += arr[num] + sumOfArr(arr[num]);
+    }
+    return sum;
   }
 }
-console.log(`4)`, sumOfArr([1, 2, 3, 4, 5, 6]));
+// console.log(`4)`, sumOfArr([1, 2, 3, 4, 5, 6, 7]));
 
 
 /* 5. Write a JavaScript program to compute the exponent of a number.
-Note : The exponent of a number says how many times the base number is used as a factor. 82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.  */
-console.log(`5)`);
+Note : The exponent of a number says how many times the base number is used as a factor. 8^2 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.  */
+// https://www.mathsisfun.com/exponent.html
+// loop version
+const expoOfNum = (base, expo) => {
+  if (expo === 1) {
+    return base;
+  } else {
+
+  }
+}
+
+console.log(`5)`, expoOfNum(3, 2));
+
 
 
 /* 6. Write a JavaScript program to get the first n Fibonacci numbers.
