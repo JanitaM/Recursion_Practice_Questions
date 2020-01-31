@@ -27,9 +27,8 @@ const gcd = (x, y) => {
   let arr = [];
   if (y % x === 0) {
     return x;
-  } else {
-    return gcd(x - 1, y - 1)
   }
+  return gcd(x - 1, y - 1)
 }
 // console.log(`2)`, gcd(8, 12));
 
@@ -77,23 +76,36 @@ const sumOfArr = arr => {
 /* 5. Write a JavaScript program to compute the exponent of a number.
 Note : The exponent of a number says how many times the base number is used as a factor. 8^2 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.  */
 // https://www.mathsisfun.com/exponent.html
-// loop version
-const expoOfNum = (base, expo) => {
-  if (expo === 1) {
-    return base;
-  } else {
+// https://www.calculatorsoup.com/calculators/algebra/exponentsolve.php
+// n = log y/log x, where n = exponent, x is unknown, y is given
+const expoOfNum = y => {
+  // if () {  //5^0 = 1
+  //   return 0;
+  // } else if (Math.log(y) / Math.log(y) === 1) {  //5^1 = 5
+  //   return 1;
+  // } else {
 
-  }
+  // }
 }
-
-console.log(`5)`, expoOfNum(3, 2));
+console.log(`5)`, expoOfNum(5)); //return 1
 
 
 
 /* 6. Write a JavaScript program to get the first n Fibonacci numbers.
 Note : The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, . . . Each subsequent number is the sum of the previous two. */
-console.log(`6)`);
-
+//https://www.mathsisfun.com/numbers/fibonacci-sequence.html
+// stop at n
+const fibonacci = n => {
+  // when you reach n, stop
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  } else {
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+}
+// console.log(`6)`, fibonacci(10));
 
 /* 7. Write a JavaScript program to check whether a number is even or not. */
 const isEven = x => {
