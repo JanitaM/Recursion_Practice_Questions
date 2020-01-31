@@ -24,7 +24,6 @@ const factorial = x => {
   return arr.pop()
 }*/
 const gcd = (x, y) => {
-  let arr = [];
   if (y % x === 0) {
     return x;
   }
@@ -90,7 +89,6 @@ const expoOfNum = y => {
 console.log(`5)`, expoOfNum(5)); //return 1
 
 
-
 /* 6. Write a JavaScript program to get the first n Fibonacci numbers.
 Note : The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, . . . Each subsequent number is the sum of the previous two. */
 //https://www.mathsisfun.com/numbers/fibonacci-sequence.html
@@ -106,6 +104,7 @@ const fibonacci = n => {
   }
 }
 // console.log(`6)`, fibonacci(10));
+
 
 /* 7. Write a JavaScript program to check whether a number is even or not. */
 const isEven = x => {
@@ -123,7 +122,24 @@ const isEven = x => {
 /* 8. Write a JavaScript program for binary search. Go to the editor
 Sample array : [0,1,2,3,4,5,6]
 console.log(l.br_search(5)) will return '5' */
-console.log(`8)`);
+//https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search
+// list is already sorted, return index
+const sampleArray = [0, 1];
+const binarySearch = (arr, num) => {
+  if (arr.length === 0) {
+    return `there are no items in the array`;
+  } else if (arr.length === 1) {
+    if (arr[0] === num) {
+      return `number found at index ${arr[0]}`;
+    } else {
+      return `the number is not in the array`;
+    }
+  } else if (arr.length > 1) {
+    return `searching`
+  }
+
+}
+console.log(`8)`, binarySearch(sampleArray, 5));
 
 
 /* 9. Write a merge sort program in JavaScript.
